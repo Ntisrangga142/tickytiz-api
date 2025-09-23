@@ -1,0 +1,1205 @@
+basePath: /api/v1
+definitions:
+  models.AdminDelete:
+    properties:
+      id:
+        example: 1
+        type: integer
+      message:
+        example: Movie successfully deleted
+        type: string
+    type: object
+  models.AdminMovie:
+    properties:
+      backdrop:
+        example: https://image.example.com/backdrops/avengers_endgame.jpg
+        type: string
+      casts:
+        example:
+        - '["Robert Downey Jr."'
+        - ' "Chris Evans"'
+        - ' "Mark Ruffalo"'
+        - ' "Chris Hemsworth"]'
+        items:
+          type: string
+        type: array
+      director:
+        example: Anthony Russo, Joe Russo
+        type: string
+      duration:
+        example: 181
+        type: integer
+      genres:
+        example:
+        - '["Action"'
+        - ' "Adventure"'
+        - ' "Sci-Fi"]'
+        items:
+          type: string
+        type: array
+      id:
+        example: 1
+        type: integer
+      poster:
+        example: https://image.example.com/posters/avengers_endgame.jpg
+        type: string
+      rating:
+        example: 8.4
+        type: number
+      release_date:
+        example: "2019-04-26T00:00:00Z"
+        type: string
+      synopsis:
+        example: Setelah pertempuran melawan Thanos, para Avengers bersatu untuk mengembalikan
+          keseimbangan di alam semesta.
+        type: string
+      title:
+        example: 'Avengers: Endgame'
+        type: string
+    type: object
+  models.AdminMovieDeleteResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.AdminDelete'
+      message:
+        example: Movie fetched successfully
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.AdminMovieResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.AdminMovie'
+      message:
+        example: Movie fetched successfully
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.AdminMovieUpdateResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.AdminUpdate'
+      message:
+        example: Movie fetched successfully
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.AdminUpdate:
+    properties:
+      backdrop:
+        example: https://image.example.com/backdrops/avengers_endgame_cut.jpg
+        type: string
+      duration:
+        example: 183
+        type: integer
+      id_director:
+        example: 12
+        type: integer
+      poster:
+        example: https://image.example.com/posters/avengers_endgame_cut.jpg
+        type: string
+      rating:
+        example: 8.5
+        type: number
+      release_date:
+        example: "2019-05-01T00:00:00Z"
+        type: string
+      synopsis:
+        example: 'Versi director''s cut dari Avengers: Endgame.'
+        type: string
+      title:
+        example: 'Avengers: Endgame - Director''s Cut'
+        type: string
+    type: object
+  models.ErrorResponse:
+    properties:
+      error:
+        example: Error Message
+        type: string
+      status:
+        example: HTTP Status Error
+        type: string
+      status_code:
+        example: 400
+        type: integer
+      success:
+        example: false
+        type: boolean
+    type: object
+  models.Genre:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  models.GenreResponse:
+    properties:
+      genres:
+        items:
+          $ref: '#/definitions/models.Genre'
+        type: array
+    type: object
+  models.LoginDocs:
+    properties:
+      data:
+        example: token
+        type: string
+      message:
+        example: Login successful
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  models.Movie:
+    properties:
+      backdrop:
+        example: inception_backdrop.jpg
+        type: string
+      duration:
+        example: 148
+        type: integer
+      genres:
+        example:
+        - Action
+        - Sci-Fi
+        - Thriller
+        items:
+          type: string
+        type: array
+      id:
+        example: 1
+        type: integer
+      poster:
+        example: inception.jpg
+        type: string
+      rating:
+        example: 8.8
+        type: number
+      release_date:
+        example: "2010-07-16"
+        type: string
+      synopsis:
+        example: A thief who enters the dreams of others to steal secrets must pull
+          off the ultimate heist.
+        type: string
+      title:
+        example: Inception
+        type: string
+    type: object
+  models.MovieDetail:
+    properties:
+      backdrop:
+        example: inception_backdrop.jpg
+        type: string
+      casts:
+        example:
+        - Leonardo DiCaprio
+        - ' Joseph Gordon-Levitt'
+        - ' Ellen Page'
+        items:
+          type: string
+        type: array
+      director:
+        example: Christopher Nolan
+        type: string
+      duration:
+        example: 148
+        type: integer
+      genres:
+        example:
+        - Action
+        - Sci-Fi
+        - Thriller
+        items:
+          type: string
+        type: array
+      id:
+        example: 1
+        type: integer
+      poster:
+        example: inception.jpg
+        type: string
+      rating:
+        example: 8.8
+        type: number
+      release_date:
+        example: "2010-07-16T00:00:00Z"
+        type: string
+      synopsis:
+        example: A thief who enters the dreams of others to steal secrets must pull
+          off the ultimate heist.
+        type: string
+      title:
+        example: Inception
+        type: string
+    type: object
+  models.OrderHistory:
+    properties:
+      cinema_name:
+        example: XXI Plaza Indonesia
+        type: string
+      duration:
+        example: 180
+        type: integer
+      ispaid:
+        example: true
+        type: boolean
+      location_name:
+        example: Jakarta
+        type: string
+      movie_backdrop:
+        example: https://example.com/backdrops/avengers-bg.jpg
+        type: string
+      movie_poster:
+        example: https://example.com/posters/avengers.jpg
+        type: string
+      movie_title:
+        example: 'Avengers: Endgame'
+        type: string
+      order_email:
+        example: rangga@example.com
+        type: string
+      order_id:
+        example: 501
+        type: integer
+      order_name:
+        example: Rangga Saputra
+        type: string
+      order_phone:
+        example: "+628123456789"
+        type: string
+      payment_method:
+        example: Credit Card
+        type: string
+      qrcode:
+        example: https://example.com/qrcode/501.png
+        type: string
+      rating:
+        example: 8.5
+        type: number
+      seats:
+        example:
+        - '["A1"'
+        - '"A2"'
+        - '"A3"]'
+        items:
+          type: string
+        type: array
+      show_date:
+        example: "2025-09-20T19:30:00Z"
+        type: string
+      show_time:
+        example: "19:30"
+        type: string
+      total_price:
+        example: 150000
+        type: integer
+    type: object
+  models.OrderRequest:
+    properties:
+      email:
+        type: string
+      id_paymentmethod:
+        type: integer
+      id_schedule:
+        type: integer
+      is_paid:
+        type: boolean
+      name:
+        type: string
+      phone:
+        type: string
+      qrcode:
+        type: string
+      seat:
+        items:
+          type: string
+        type: array
+      total_price:
+        type: number
+    required:
+    - email
+    - id_paymentmethod
+    - id_schedule
+    - name
+    - phone
+    - qrcode
+    - total_price
+    type: object
+  models.OrderResponse:
+    properties:
+      email:
+        example: rangga@example.com
+        type: string
+      id:
+        example: 101
+        type: integer
+      name:
+        example: Rangga Saputra
+        type: string
+      phone:
+        example: "+628123456789"
+        type: string
+      qrcode:
+        example: https://example.com/qrcode/101.png
+        type: string
+      seat:
+        example:
+        - A1
+        - A2
+        - A3
+        items:
+          type: string
+        type: array
+    type: object
+  models.RegisterDocs:
+    properties:
+      data:
+        example: ""
+        type: string
+      message:
+        example: Register successful
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.RegisterRequest:
+    properties:
+      email:
+        type: string
+      password:
+        minLength: 6
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  models.ResponseMovieDetail:
+    properties:
+      data:
+        $ref: '#/definitions/models.MovieDetail'
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.ResponseMovies:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.Movie'
+        type: array
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.ResponseOrderHistory:
+    properties:
+      data:
+        $ref: '#/definitions/models.OrderHistory'
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.ResponseOrders:
+    properties:
+      data:
+        $ref: '#/definitions/models.OrderResponse'
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.ResponseSchedule:
+    properties:
+      data:
+        $ref: '#/definitions/models.ScheduleResponse'
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.ResponseSeats:
+    properties:
+      data:
+        $ref: '#/definitions/models.SeatResponse'
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.ResponseUpdateProfile:
+    properties:
+      data:
+        $ref: '#/definitions/models.UpdateProfile'
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.ResponseUserProfile:
+    properties:
+      data:
+        $ref: '#/definitions/models.UserProfile'
+      message:
+        example: Success Load Movies
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  models.Schedule:
+    properties:
+      cinema:
+        type: string
+      cinema_img:
+        type: string
+      date:
+        type: string
+      id:
+        type: integer
+      location:
+        type: string
+      price:
+        type: integer
+      show_time:
+        type: string
+    type: object
+  models.ScheduleResponse:
+    properties:
+      movie_id:
+        example: 101
+        type: integer
+      schedule:
+        items:
+          $ref: '#/definitions/models.Schedule'
+        type: array
+    type: object
+  models.SeatResponse:
+    properties:
+      schedule_id:
+        example: 12
+        type: integer
+      seat_id:
+        example:
+        - A1
+        - A2
+        - A3
+        items:
+          type: string
+        type: array
+    type: object
+  models.UpdateProfile:
+    properties:
+      firstname:
+        example: Rangga
+        type: string
+      lastname:
+        example: Saputra
+        type: string
+      phone:
+        example: "+628123456789"
+        type: string
+      profileimg:
+        description: akan diisi path setelah upload file
+        example: https://example.com/uploads/profile_101.png
+        type: string
+      virtual_account:
+        example: "1234567890123456"
+        type: string
+    type: object
+  models.UserProfile:
+    properties:
+      email:
+        example: rangga@example.com
+        type: string
+      firstname:
+        example: Rangga
+        type: string
+      id:
+        example: 101
+        type: integer
+      lastname:
+        example: Saputra
+        type: string
+      phone:
+        example: "+628123456789"
+        type: string
+      point:
+        example: 250
+        type: integer
+      profileimg:
+        example: https://example.com/uploads/profile_101.png
+        type: string
+      role:
+        example: user
+        type: string
+      virtual_account:
+        example: "1234567890123456"
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: API untuk sistem tiket bioskop
+  title: Tickytiz API
+  version: "1.0"
+paths:
+  /admin/:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve detailed information of a movie by its ID
+      parameters:
+      - description: Movie ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AdminMovieResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get movie by ID
+      tags:
+      - Admin
+  /admin/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Soft-delete a movie by ID (sets delete_at timestamp)
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AdminMovieDeleteResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete movie
+      tags:
+      - Admin
+    put:
+      consumes:
+      - multipart/form-data
+      description: Update movie details, including poster and backdrop images
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Movie title
+        in: formData
+        name: title
+        type: string
+      - description: Poster image
+        in: formData
+        name: poster
+        type: file
+      - description: Backdrop image
+        in: formData
+        name: backdrop
+        type: file
+      - description: Release date in YYYY-MM-DD format
+        in: formData
+        name: release_date
+        type: string
+      - description: Duration in minutes
+        in: formData
+        name: duration
+        type: integer
+      - description: Movie synopsis
+        in: formData
+        name: synopsis
+        type: string
+      - description: Movie rating
+        in: formData
+        name: rating
+        type: number
+      - description: Director ID
+        in: formData
+        name: id_director
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AdminMovieUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update movie
+      tags:
+      - Admin
+  /admin/movies:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Insert movie with poster, backdrop, genres, actors, schedule
+      parameters:
+      - description: Movie title
+        in: formData
+        name: title
+        required: true
+        type: string
+      - description: Release date yyyy-mm-dd
+        in: formData
+        name: release_date
+        required: true
+        type: string
+      - description: Duration in minutes
+        in: formData
+        name: duration
+        required: true
+        type: integer
+      - description: Director name
+        in: formData
+        name: director_name
+        required: true
+        type: string
+      - description: Poster image
+        in: formData
+        name: poster
+        required: true
+        type: file
+      - description: Backdrop image
+        in: formData
+        name: backdrop
+        required: true
+        type: file
+      - description: Comma separated genres
+        in: formData
+        name: genres
+        required: true
+        type: string
+      - description: Comma separated actor names
+        in: formData
+        name: cast_name
+        required: true
+        type: string
+      - description: Comma separated locations
+        in: formData
+        name: location
+        required: true
+        type: string
+      - description: Comma separated datetimes (yyyy-mm-ddTHH:MM)
+        in: formData
+        name: date_time
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AdminMovie'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Insert movie
+      tags:
+      - Admin
+  /auth:
+    post:
+      consumes:
+      - application/json
+      description: Login dengan Email dan Password untuk mendapatkan JWT token
+      parameters:
+      - description: Login request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.LoginDocs'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Login user
+      tags:
+      - Auth
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: Register Akun Baru
+      parameters:
+      - description: Register request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.RegisterDocs'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Register User
+      tags:
+      - Auth
+  /genres:
+    get:
+      consumes:
+      - application/json
+      description: Get all movie genres
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GenreResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get list of genres
+      tags:
+      - Genres
+  /movies/:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve movies filtered by title, genres, and page number (supports
+        Redis caching)
+      parameters:
+      - description: Filter by movie title
+        in: query
+        name: title
+        type: string
+      - description: Filter by genres, comma-separated
+        in: query
+        name: genres
+        type: string
+      - description: Page number for pagination
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseMovies'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get filtered movies
+      tags:
+      - Movies
+  /movies/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve detailed information for a single movie by ID (cached
+        in Redis for 10 minutes)
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseMovieDetail'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get movie details
+      tags:
+      - Movies
+  /movies/popular:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of popular movies (cached in Redis for 10 minutes)
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseMovies'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get popular movies
+      tags:
+      - Movies
+  /movies/upcoming:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of upcoming movies (cached in Redis for 10 minutes)
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseMovies'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get upcoming movies
+      tags:
+      - Movies
+  /order:
+    post:
+      consumes:
+      - application/json
+      description: Create a new order with seats and associate it with the logged-in
+        user
+      parameters:
+      - description: Order request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.OrderRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseOrders'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new order
+      tags:
+      - Orders
+  /schedule/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get all schedules for a specific movie by its ID
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseSchedule'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get movie schedules
+      tags:
+      - Schedules
+  /schedule/seat/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all sold seats for a specific schedule
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseSeats'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get sold seats
+      tags:
+      - Schedules
+  /user:
+    get:
+      description: Mengambil data profil user yang sedang login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseUserProfile'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get user profile
+      tags:
+      - Users
+  /user/:
+    patch:
+      consumes:
+      - multipart/form-data
+      description: Mengupdate profil user termasuk upload profile image
+      parameters:
+      - description: Profile Image
+        in: formData
+        name: profileimg
+        type: file
+      - description: First Name
+        in: formData
+        name: firstname
+        type: string
+      - description: Last Name
+        in: formData
+        name: lastname
+        type: string
+      - description: Phone
+        in: formData
+        name: phone
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseUpdateProfile'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update user profile
+      tags:
+      - Users
+  /user/history:
+    get:
+      description: Mengambil riwayat order user yang sedang login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseOrderHistory'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get order history
+      tags:
+      - Users
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
