@@ -1,0 +1,3 @@
+CREATE TABLE public.seat (
+  id VARCHAR(255) PRIMARY KEY
+);
